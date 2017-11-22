@@ -851,6 +851,35 @@
  * # define BOARD_FORCE_BL_PULL            GPIO_PUPD_PULLUP
 */
 
+/****************************************************************************
+ * TARGET_HW_MINIPIX
+ ****************************************************************************/
+
+#elif  defined(TARGET_HW_MINIPIX)
+
+# define APP_LOAD_ADDRESS               0x08004000
+# define BOOTLOADER_DELAY               5000
+# define BOARD_MINIPIX  // FIXME: is this necessary?
+# define INTERFACE_USB                  1
+# define INTERFACE_USART                0
+# define USBMFGSTRING                   "Radiolink"
+# define USBDEVICESTRING                "Mini Pix PX4 BL"
+# define USBVENDORID                    0x26AC  // FIXME: set corrent USB VID
+# define USBPRODUCTID                   0x0016  // FIXME: set corrent USB PID
+
+# define BOARD_TYPE                     20
+# define BOARD_FLASH_SECTORS            11
+# define BOARD_FLASH_SIZE               (1024 * 1024)
+
+# define OSC_FREQ                       24
+
+# define BOARD_PIN_LED_ACTIVITY         0
+# define BOARD_PIN_LED_BOOTLOADER       GPIO12
+# define BOARD_PORT_LEDS                GPIOE
+# define BOARD_CLOCK_LEDS               RCC_AHB1ENR_IOPEEN
+# define BOARD_LED_ON                   gpio_clear
+# define BOARD_LED_OFF                  gpio_set
+
 #else
 # error Undefined Target Hardware
 #endif

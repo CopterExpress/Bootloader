@@ -41,6 +41,7 @@ TARGETS	= \
 	auavx2v1_bl \
 	crazyflie_bl \
 	mindpxv2_bl \
+	minipix_bl \
 	px4aerocore_bl \
 	px4discovery_bl \
 	px4flow_bl \
@@ -104,6 +105,9 @@ cube_f4_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
 
 cube_f7_bl:$(MAKEFILE_LIST) $(LIBOPENCM3)
 	${MAKE} ${MKFLAGS} -f  Makefile.f7 TARGET_HW=CUBE_F7 LINKER_FILE=stm32f7.ld TARGET_FILE_NAME=$@
+
+minipix_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
+	${MAKE} ${MKFLAGS} -f  Makefile.f4 TARGET_HW=MINIPIX LINKER_FILE=stm32f4.ld TARGET_FILE_NAME=$@
 
 # Default bootloader delay is *very* short, just long enough to catch
 # the board for recovery but not so long as to make restarting after a
